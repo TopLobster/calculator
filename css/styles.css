@@ -1,0 +1,14 @@
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.calc-body {
+  height: 100vh;
+}
+
+.calc-body .buttons {
+  display: -ms-grid;
+  display: grid;
+}
+/*# sourceMappingURL=styles.css.map */
