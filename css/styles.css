@@ -3,12 +3,204 @@
           box-sizing: border-box;
 }
 
+html {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1em;
+}
+
 .calc-body {
   height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  background-color: #464646;
+  min-width: 20em;
+}
+
+.calc-body .screen {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 2rem;
+          flex: 1 0 2rem;
 }
 
 .calc-body .buttons {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0;
+          flex: 0 0;
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-areas: "seven eight nine divide delete clear" "four five six multiply po pc" "one two three subtract mod super" "zero zero period add equals equals";
+  grid-gap: 0.1875rem;
+  padding: 0.1875rem;
+}
+
+.calc-body .buttons button {
+  background: -webkit-gradient(linear, left top, left bottom, from(#373737), to(#2a2a2a));
+  background: linear-gradient(#373737, #2a2a2a);
+  color: whitesmoke;
+  font-size: 1rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 900;
+  border: 0.03125rem solid #141414;
+  height: 2rem;
+  border-radius: 0.25rem;
+  vertical-align: center;
+  text-align: center;
+}
+
+.calc-body .buttons button em, .calc-body .buttons button var {
+  font-style: italic;
+}
+
+.calc-body .buttons button sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.calc-body .buttons #one {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.calc-body .buttons #two {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+.calc-body .buttons #three {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: three;
+}
+
+.calc-body .buttons #four {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: four;
+}
+
+.calc-body .buttons #five {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: five;
+}
+
+.calc-body .buttons #six {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: six;
+}
+
+.calc-body .buttons #seven {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: seven;
+}
+
+.calc-body .buttons #eight {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: eight;
+}
+
+.calc-body .buttons #nine {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: nine;
+}
+
+.calc-body .buttons #zero {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: zero;
+}
+
+.calc-body .buttons #period {
+  -ms-grid-row: 4;
+  -ms-grid-column: 3;
+  grid-area: period;
+}
+
+.calc-body .buttons #add {
+  -ms-grid-row: 4;
+  -ms-grid-column: 4;
+  grid-area: add;
+}
+
+.calc-body .buttons #subtract {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: subtract;
+}
+
+.calc-body .buttons #multiply {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: multiply;
+}
+
+.calc-body .buttons #divide {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: divide;
+}
+
+.calc-body .buttons #superscript {
+  -ms-grid-row: 3;
+  -ms-grid-column: 6;
+  grid-area: super;
+}
+
+.calc-body .buttons #sqrt {
+  grid-area: sqrt;
+}
+
+.calc-body .buttons #clear {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  grid-area: clear;
+}
+
+.calc-body .buttons #delete {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: delete;
+}
+
+.calc-body .buttons #mod {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  grid-area: mod;
+}
+
+.calc-body .buttons #parenopen {
+  -ms-grid-row: 2;
+  -ms-grid-column: 5;
+  grid-area: po;
+}
+
+.calc-body .buttons #parenclose {
+  -ms-grid-row: 2;
+  -ms-grid-column: 6;
+  grid-area: pc;
+}
+
+.calc-body .buttons #equals {
+  -ms-grid-row: 4;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-area: equals;
+  background: #2873af;
+  border-color: #144164;
 }
 /*# sourceMappingURL=styles.css.map */

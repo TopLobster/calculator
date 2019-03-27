@@ -1,16 +1,82 @@
+$button-color: rgb(55,55,55);
+$button-border: rgb(20,20,20);
+$body-color: rgb(70,70,70);
+
 *, *::after, *::before {
     box-sizing: border-box;
+}
 
+html {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
 }
 
 .calc-body {
     height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: $body-color;  
+    min-width: (320em/16);  
     .screen {
-
+        flex: 1 0 2rem;
     }
     .buttons {
+        flex: 0 0;
         display: grid;
+        grid-template-columns: repeat(6, 1fr);
         grid-template-areas:
-        
+            "seven eight nine divide delete clear"
+            "four five six multiply po pc"
+            "one two three subtract mod super"
+            "zero zero period add equals equals";
+        grid-gap: (3rem/16);
+        padding: (3rem/16);
+        button {
+            background: linear-gradient($button-color, darken($button-color, 5%));
+            color: whitesmoke;
+            font-size: 1rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 900;
+            border: (1rem/32) solid $button-border;
+            height: 2rem;
+            border-radius: (4rem/16);
+            vertical-align: center;
+            text-align: center;
+            em, var{
+                font-style: italic;
+            }
+            sup {
+                vertical-align: super;
+                font-size: smaller;
+            }
+        }
+        #one {grid-area: one;}
+        #two {grid-area:two}
+        #three {grid-area:three}
+        #four {grid-area:four}
+        #five {grid-area:five}
+        #six {grid-area:six}
+        #seven {grid-area:seven}
+        #eight {grid-area:eight}
+        #nine {grid-area:nine}
+        #zero {grid-area:zero}
+        #period {grid-area:period}
+        #add {grid-area:add}
+        #subtract {grid-area:subtract}
+        #multiply {grid-area:multiply}
+        #divide {grid-area:divide}
+        #superscript {grid-area:super}
+        #sqrt {grid-area:sqrt}
+        #clear {grid-area:clear}
+        #delete {grid-area:delete}
+        #mod {grid-area:mod}
+        #parenopen {grid-area:po}
+        #parenclose {grid-area:pc}
+        #equals {
+            grid-area:equals;
+            background: rgb(40, 115, 175);
+            border-color: rgb(20, 65, 100);
+        }
     }
 }
