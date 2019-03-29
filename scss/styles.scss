@@ -2,9 +2,9 @@ $button-color: rgb(55,55,55);
 $button-border: rgb(20,20,20);
 $body-color: rgb(70,70,70);
 
-*, *::after, *::before {
-    box-sizing: border-box;
-}
+*, *::after, *::before {box-sizing: border-box;}
+*:focus {outline: none;}
+::-moz-focus-inner {border:0;}
 
 html {
     font-family: 'Courier New', Courier, monospace;
@@ -17,9 +17,57 @@ html {
     display: flex;
     flex-flow: column nowrap;
     background-color: $body-color;  
-    min-width: (320em/16);  
+    min-width: (320em/16);
+    border: 16em/16 solid $button-border;
     .screen {
         flex: 1 0 2rem;
+        display: flex;
+        flex-flow: column-reverse nowrap;
+        overflow: hidden;
+        color: whitesmoke;
+        background-color: $button-color;
+        .history {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: (6rem/16) (3rem/16);
+            color: darken(whitesmoke, 20%);
+            span {
+                display: inline-block;
+            }
+            span.left {
+                text-align: left;
+                width: 50%;
+                overflow: hidden;
+            }
+            span.right {
+                width: 40%;
+                overflow: hidden;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        .input-area {
+            background: darken($button-color, 3%);
+            border-top: (1rem/16) solid $button-border;
+            padding: (3rem/16);
+            #active {
+                width: 100%;
+                height: (9rem/16)+1.1rem;
+                padding: (6rem/16) 0 (3rem/16);
+                font-size: 1.1rem;
+                overflow: hidden;
+            }
+            #warn {
+                width: 100%;
+                height: (6rem/16)+.8rem;
+                overflow: hidden;
+                font-size: .8rem;
+                padding: (3rem/16) 0;
+                background: darken($button-color, 3%);
+            }
+        }
     }
     .buttons {
         flex: 0 0;
@@ -41,7 +89,6 @@ html {
             border: (1rem/32) solid $button-border;
             height: 2rem;
             border-radius: (4rem/16);
-            vertical-align: center;
             text-align: center;
             em, var{
                 font-style: italic;
@@ -51,7 +98,13 @@ html {
                 font-size: smaller;
             }
         }
-        #one {grid-area: one;}
+        button:hover {
+            background: linear-gradient(lighten($button-color, 3%), darken($button-color, 2%));
+        }
+        button:active {
+            background: linear-gradient(darken($button-color, 10%), darken($button-color, 5%));
+        }
+        #one {grid-area:one;} 
         #two {grid-area:two}
         #three {grid-area:three}
         #four {grid-area:four}

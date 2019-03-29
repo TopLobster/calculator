@@ -3,6 +3,14 @@
           box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
 html {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1em;
@@ -20,12 +28,85 @@ html {
           flex-flow: column nowrap;
   background-color: #464646;
   min-width: 20em;
+  border: 16em/16 solid #141414;
 }
 
 .calc-body .screen {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 2rem;
           flex: 1 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: column-reverse nowrap;
+          flex-flow: column-reverse nowrap;
+  overflow: hidden;
+  color: whitesmoke;
+  background-color: #373737;
+}
+
+.calc-body .screen .history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.375rem 0.1875rem;
+  color: #c2c2c2;
+}
+
+.calc-body .screen .history span {
+  display: inline-block;
+}
+
+.calc-body .screen .history span.left {
+  text-align: left;
+  width: 50%;
+  overflow: hidden;
+}
+
+.calc-body .screen .history span.right {
+  width: 40%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.calc-body .screen .input-area {
+  background: #2f2f2f;
+  border-top: 0.0625rem solid #141414;
+  padding: 0.1875rem;
+}
+
+.calc-body .screen .input-area #active {
+  width: 100%;
+  height: 1.6625rem;
+  padding: 0.375rem 0 0.1875rem;
+  font-size: 1.1rem;
+  overflow: hidden;
+}
+
+.calc-body .screen .input-area #warn {
+  width: 100%;
+  height: 1.175rem;
+  overflow: hidden;
+  font-size: .8rem;
+  padding: 0.1875rem 0;
+  background: #2f2f2f;
 }
 
 .calc-body .buttons {
@@ -51,7 +132,6 @@ html {
   border: 0.03125rem solid #141414;
   height: 2rem;
   border-radius: 0.25rem;
-  vertical-align: center;
   text-align: center;
 }
 
@@ -62,6 +142,16 @@ html {
 .calc-body .buttons button sup {
   vertical-align: super;
   font-size: smaller;
+}
+
+.calc-body .buttons button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#3f3f3f), to(#323232));
+  background: linear-gradient(#3f3f3f, #323232);
+}
+
+.calc-body .buttons button:active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#1e1e1e), to(#2a2a2a));
+  background: linear-gradient(#1e1e1e, #2a2a2a);
 }
 
 .calc-body .buttons #one {
