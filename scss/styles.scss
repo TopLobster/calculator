@@ -1,6 +1,8 @@
 $button-color: rgb(55,55,55);
 $button-border: rgb(20,20,20);
 $body-color: rgb(70,70,70);
+$equals-color: rgb(40, 115, 175);
+$equals-border: rgb(20, 65, 100);
 
 *, *::after, *::before {box-sizing: border-box;}
 *:focus {outline: none;}
@@ -101,7 +103,7 @@ html {
         button:hover {
             background: linear-gradient(lighten($button-color, 3%), darken($button-color, 2%));
         }
-        button:active {
+        button.active {
             background: linear-gradient(darken($button-color, 10%), darken($button-color, 5%));
         }
         #one {grid-area:one;} 
@@ -128,8 +130,14 @@ html {
         #parenclose {grid-area:pc}
         #equals {
             grid-area:equals;
-            background: rgb(40, 115, 175);
-            border-color: rgb(20, 65, 100);
+            background: linear-gradient($equals-color, darken($equals-color, 10%));
+            border-color: $equals-border;
+        }
+        #equals:hover {
+            background: linear-gradient(lighten($equals-color, 5%), darken($equals-color, 5%));
+        }
+        #equals:active {
+            background: linear-gradient(darken($equals-color, 10%), darken($equals-color, 5%));
         }
     }
 }

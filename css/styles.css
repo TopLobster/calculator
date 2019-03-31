@@ -149,7 +149,7 @@ html {
   background: linear-gradient(#3f3f3f, #323232);
 }
 
-.calc-body .buttons button:active {
+.calc-body .buttons button.active {
   background: -webkit-gradient(linear, left top, left bottom, from(#1e1e1e), to(#2a2a2a));
   background: linear-gradient(#1e1e1e, #2a2a2a);
 }
@@ -290,7 +290,18 @@ html {
   -ms-grid-column: 5;
   -ms-grid-column-span: 2;
   grid-area: equals;
-  background: #2873af;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2873af), to(#1f5885));
+  background: linear-gradient(#2873af, #1f5885);
   border-color: #144164;
+}
+
+.calc-body .buttons #equals:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#2d81c4), to(#23659a));
+  background: linear-gradient(#2d81c4, #23659a);
+}
+
+.calc-body .buttons #equals:active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#1f5885), to(#23659a));
+  background: linear-gradient(#1f5885, #23659a);
 }
 /*# sourceMappingURL=styles.css.map */
