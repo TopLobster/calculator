@@ -33,8 +33,8 @@ html {
 
 .calc-body .screen {
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 2rem;
-          flex: 1 0 2rem;
+      -ms-flex: 1 0 6rem;
+          flex: 1 0 6rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,31 +51,46 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: column-reverse nowrap;
+          flex-flow: column-reverse nowrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: hidden;
   padding: 0.375rem 0.1875rem;
   color: #c2c2c2;
 }
 
-.calc-body .screen .history span {
-  display: inline-block;
+.calc-body .screen .history .hist-elem {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0;
+          flex: 0 0;
+  border-top: 1px solid #2f2f2f;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.375rem 0;
 }
 
-.calc-body .screen .history span.left {
+.calc-body .screen .history .hist-elem span.left {
+  display: inline-block;
   text-align: left;
   width: 50%;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.calc-body .screen .history span.right {
+.calc-body .screen .history .hist-elem span.right {
+  display: inline-block;
   width: 40%;
   overflow: hidden;
   display: -webkit-box;
@@ -84,6 +99,7 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  text-overflow: ellipsis;
 }
 
 .calc-body .screen .input-area {
@@ -93,11 +109,14 @@ html {
 }
 
 .calc-body .screen .input-area #active {
-  width: 100%;
   height: 1.6625rem;
   padding: 0.375rem 0 0.1875rem;
+  width: 100%;
+  font: inherit;
   font-size: 1.1rem;
-  overflow: hidden;
+  color: inherit;
+  background: transparent;
+  border: 0;
 }
 
 .calc-body .screen .input-area #warn {
@@ -149,7 +168,7 @@ html {
   background: linear-gradient(#3f3f3f, #323232);
 }
 
-.calc-body .buttons button.active {
+.calc-body .buttons button:active, .calc-body .buttons button.active {
   background: -webkit-gradient(linear, left top, left bottom, from(#1e1e1e), to(#2a2a2a));
   background: linear-gradient(#1e1e1e, #2a2a2a);
 }
@@ -300,7 +319,7 @@ html {
   background: linear-gradient(#2d81c4, #23659a);
 }
 
-.calc-body .buttons #equals:active {
+.calc-body .buttons #equals:active, .calc-body .buttons #equals.active {
   background: -webkit-gradient(linear, left top, left bottom, from(#1f5885), to(#23659a));
   background: linear-gradient(#1f5885, #23659a);
 }
