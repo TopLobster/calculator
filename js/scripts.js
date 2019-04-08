@@ -1,10 +1,24 @@
 "use strict";
 
 let histList = document.querySelector(".history");
+let histListValues = [];
 let active = document.querySelector("#active");
 let warn = document.querySelector("#warn");
 
 function operate(expression) {
+  // TODO: manually parse expression to avoid injections
+  // TODO: special warning for division by zero
+  // TODO: add handling for custom variables
+  let assoc = {
+    "^" : "r",
+    "*" : "l",
+    "/" : "l",
+    "+" : "l",
+    "-" : "l",
+  }
+  let outputStack = [];
+  let operatorStack = [];
+  // Shunting-yard algorithm will go here
   let value;
   try {
     warn.textContent = "";
@@ -18,7 +32,10 @@ function operate(expression) {
 }
 
 function addHistory(expression, value) {
-  histList.innerHTML = `<div class="hist-elem"><span class="left">`+expression+`</span><span class="right"><span>=</span><span>`+value+`</span></span></div>`+histList.innerHTML;
+  // TODO: adjust max decimal length in history log
+  // TODO: add full values to new array of history
+  // TODO: max history length to some value (i.e. 30)
+  histList.innerHTML = `<div class="hist-elem"><span class="left">`+expression+`</span><span class="right"><span>`+value+`</span></div>`+histList.innerHTML;
 }
 
 function addKeypress(keyPress) {
